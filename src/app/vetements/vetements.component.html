@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <thead>
+        <tr> <th>ID</th><th>Article</th> <th>Prix(TND)</th> <th>Date de disponibilité</th> </tr>
+    </thead>
+    <tbody *ngFor="let vetement of vetements">
+    
+    <tr >
+        <td>{{vetement.idVetement}}</td>
+        <td>{{vetement.nomVetement}}</td>
+        <td>{{vetement.prixVetement}}</td>
+        <td>{{vetement.dateCreation | date:'dd/MM/yyyy'}}</td>
+        <td><a *ngIf="authService.isAdmin()" class="btn btn-outline-danger" (click)="supprimerVetement(vetement)">Supprimer</a></td>
+        <td><a  *ngIf="authService.isAdmin()" class="btn btn-outline-primary" [routerLink]="['/updateVetement',vetement.idVetement]">Modifier</a></td>
+    
+    </table>
+    </div>
+    </div>
+    </div>
